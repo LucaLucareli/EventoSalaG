@@ -1,12 +1,13 @@
-on:
-  push:
-    jobs:
-      build:
-        name: PrimeiroJob
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v4
-          - name: Executando o STEP1
-            run: |
-              echo Esse processo carrega uma mensagem
-              echo basica para entender o workflow
+name: Workflow
+
+on: [push]
+
+jobs:
+  PrimeiroJob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Python script
+        run: python your_script.py
